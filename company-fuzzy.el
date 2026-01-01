@@ -1,6 +1,6 @@
 ;;; company-fuzzy.el --- Fuzzy matching for `company-mode'  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2019-2025  Shen, Jen-Chieh
+;; Copyright (C) 2019-2026  Shen, Jen-Chieh
 ;; Created date 2019-08-01 16:54:34
 
 ;; Author: Shen, Jen-Chieh <jcs090218@gmail.com>
@@ -416,7 +416,8 @@ See function `string-prefix-p' for arguments PREFIX, STRING and IGNORE-CASE."
 (defun company-fuzzy--sort-candidates-by-function (candidates fnc &optional flip)
   "Sort CANDIDATES with function call FNC.
 
-If optional argument FLIP is non-nil, reverse query and pattern order."
+If optional argument FLIP is non-nil, reverse query and pattern order."
+
   (let ((scoring-table (make-hash-table :test 'equal)) scoring-keys)
     (dolist (cand candidates)
       (when-let* ((prefix (company-fuzzy--backend-prefix-candidate cand 'match))
